@@ -1,6 +1,7 @@
 import './Modal.css';
-import{ useState,useRef, useEffect} from "react";
+import{ useContext,useState,useRef, useEffect} from "react";
 import axios from 'axios';
+import { AppDiary } from './App'
 
 const Modal = ({ show, close }) => {
 
@@ -13,10 +14,11 @@ const Modal = ({ show, close }) => {
 // });
 
 var date = new Date("yyyy-mm-dd");
-const [diaryDate, setdiaryDate] = useState('20221109');
-const [content, setcontent] = useState('dddd');
-const [Name, setname] = useState('hoge');
+const [diaryDate, setdiaryDate] = useState('20221111');
+const [content, setcontent] = useState('くそが！');
+const [name, setname] = useState('hoge');
 const [userId, setuserId] = useState('123456789');
+
 
 // whether: '',
 // content: 'dddd',
@@ -24,19 +26,29 @@ const [userId, setuserId] = useState('123456789');
 // userId: "123456789",
 // diaryDate: '2022-11-09',
 
-async function getDiary(){
-  
+async function postDiary(){
+  // {
+  //   "content": this.content,
+  //   "name": this.Name,
+  //   "userId": this.userId,
+  //   "diaryDate": this.diaryDate
+  // }
+  console.log(diaryDate)
+  console.log(content)
+  console.log(name)
+  console.log(userId)
+
   try {
-    var response = 
-    await axios.post('https://azuretutorial20221105000814.azurewebsites.net/api/TableClientOutput?code=N-gYWDvlotZGt_TfbnxhQ3nol0tEpW5efGWCn_7aGYCEAzFuG-Uxuw==', {
+    var response = await axios.post("https://azuretutorial20221105000814.azurewebsites.net/api/TableClientOutput?code=N-gYWDvlotZGt_TfbnxhQ3nol0tEpW5efGWCn_7aGYCEAzFuG-Uxuw==", {
       "content": content,
-      "name": Name,
+      "name": name,
       "userId": userId,
       "diaryDate": diaryDate
-   });
+    });
   }catch{
     console.error(response)
   }
+
   console.log(response);
 }
 
@@ -44,7 +56,7 @@ const handleSubmit = () => {
   console.log(diaryDate);
   console.log(content);
 
-  getDiary();
+  postDiary();
 }
 
     return (
@@ -60,12 +72,7 @@ const handleSubmit = () => {
                x close
               </button> */}
             <div onClick={(e) => e.stopPropagation()}>
-            {/* <div className ="list">
-              <p>天気</p>
-              <input className ="listmini" value={text.whether} 
-              onChange={(event) => setText(event.target.value)} />
-              <p>{text.whether}</p>
-            </div> */}
+
             <div className ="list">
               <p>日付</p>
               <input className ="listmini" type="date" value={diaryDate}
