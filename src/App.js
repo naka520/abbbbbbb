@@ -109,7 +109,12 @@ function App() {
         </div>
         
         <ul className = "boxul">
-        <li>test</li>
+          <li className ="boxli1"></li>
+          <li className ="boxli2">
+            <li className = "boxli3 bg-amber-500"></li>
+            <li className = "boxli3 bg-green-500"></li>
+            <li className = "boxli3 bg-green-500"></li>
+          </li>
         </ul>
        
         {/* <ul className="todos">

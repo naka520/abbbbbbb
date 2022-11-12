@@ -45,11 +45,42 @@
 .boxul{
   background: #ffffff;
   border: 0.5px solid #868686;
-  width:70%;
+  width:80%;
   height:100%;
- 
+  color:rgb(0, 0, 0); 
+  display:flex;
 
 }
+
+.boxli1{
+  background: #ffffff;
+  border: 0.5px solid #868686;
+  width:20%;
+  height:100%;
+  color:rgb(0, 0, 0); 
+
+}
+
+.boxli2{
+  background: #ffffff;
+  border: 0.5px solid #868686;
+  width:80%;
+  height:100%;
+  color:rgb(0, 0, 0); 
+  
+
+}
+
+.boxli3{
+  background: #ffffff;
+  border: 0.5px solid #868686;
+  width:5%;
+  height:20%;
+  color:rgb(0, 0, 0); 
+
+}
+
+
 
 .blue {
 	height: 700px;
